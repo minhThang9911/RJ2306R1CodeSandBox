@@ -3,6 +3,7 @@ import Main from "./modules/Main"
 import Users from "./modules/Users"
 import Posts from "./modules/Posts"
 import Comments from './modules/Comments'
+import './App.css'
 
 const router = createBrowserRouter([
   {

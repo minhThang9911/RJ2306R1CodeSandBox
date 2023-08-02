@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getData, getUsers } from "../../api";
+import { getData } from "../../api";
 import path from '../../config/path'
 
 function Users() {
@@ -11,6 +11,7 @@ function Users() {
         })()        
     },[])
     return ( <div>
+    
         <h1>User list</h1>
         <ol>
             {

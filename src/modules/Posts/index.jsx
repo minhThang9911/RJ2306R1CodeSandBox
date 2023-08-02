@@ -7,7 +7,7 @@ function Posts() {
         (async()=>{           
         setPosts(await getPosts())
         })()        
-    },[])
+    },[])    
     return ( <div>
         <h1>Post list</h1>
         <ol>

@@ -1,12 +1,27 @@
 import axios from "axios"
 
+
+
+
 const myAxios = axios.create({
-    baseURL:'http://localhost:3001/api',
+    // baseURL:'http://localhost:3001/api',
+    baseURL:'https://jsonplaceholder.typicode.com',
     timeout:1000
 })
 
 export const getData = async(link)=>{
-    return (await myAxios.get(link)).data
+    return await myAxios.get(link)
+}
+
+export const addData = async(link,data) => {
+    return await myAxios.post(link,data)
+}
+
+export const editData = async(link,id,data) =>{
+    return await myAxios.put(`${link}/${id}`,data)
+}
+export const deleteData = async(link,id) =>{
+    return await myAxios.delete(`${link}/${id}`)
 }
 
 export const getUsers = async()=>{
