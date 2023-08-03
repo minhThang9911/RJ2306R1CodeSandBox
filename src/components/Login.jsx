@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { fakeLogin } from "../redux/action";
 
 function Login() {
 	const navigate = useNavigate();
@@ -12,7 +13,7 @@ function Login() {
 		setUser(newVal);
 	};
 	const login = () => {
-		dispatch({ type: "LOGIN", payload: user });
+		dispatch(fakeLogin(user));
 	};
 	useEffect(() => {
 		if (userlogined.username) {
