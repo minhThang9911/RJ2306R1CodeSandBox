@@ -1,18 +1,18 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import Login from "./components/Login";
-import User from "./components/User";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import PostList from "./components/PostList";
+import Post from "./components/Post";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <Login />,
+		element: <PostList />,
 	},
 	{
-		path: "/users",
-		element: <User />,
+		path: "/post",
+		element: <Post />,
 	},
 ]);
 

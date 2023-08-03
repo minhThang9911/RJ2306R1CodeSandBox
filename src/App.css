@@ -1,57 +1,57 @@
 #root {
   width: 90%;
-  margin: 0;
+  margin: auto;
   padding: 2rem;
 }
 
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.form-text-field label{
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin: 0.5em;
-}
-
-.form-text-field label span {
-  display: block;
-  width: 30%;
-}
-.form-text-field label input{
-  flex-grow: 1;
-}
-
-.container{
-  width: 100%;
-}
-
-.row {
+.header {
   display: flex;
   justify-content: space-between;
 }
-.col {
-  width: 33.33%;
-  flex: 0 0 auto;
+
+.body {
+  list-style: none;
+ 
+}
+
+.body li{
+  border: 1px solid #ccc;
+  border-radius: 0.8em;
   padding: 1em;
+  margin: 1em 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.col ul li{
-  list-style-type: none;
-  border: 1px solid #949494;
-  padding: 0.5em;
-  margin: 0.3em 0;
-  border-radius: 0.5em;
-  cursor: pointer;
+.body li .post-content {
+  width: 70%;
 }
 
-.col ul li:hover{
-  background-color: rgba(255,255,255,0.3);
+.edit-post-body {
+  border: 1px solid #ccc;
+  border-radius: 0.8em;
+  padding: 1em;
+  margin: 1em 0;  
+}
+
+
+
+.edit-post-body label{
+  display: block;
+}
+
+.post-field + .post-field{
+  margin-top: 1em;
+}
+.post-field textarea,
+.post-field input {
+  display: block;
+  width: 100%;
+  padding: 0.3em;
+  border-radius: 0.3em;
+  border-style: solid;
+}
+.post-field textarea{
+  height: 20em;
 }

@@ -1,33 +1,45 @@
 import axios from "axios";
 
-export const LOGIN = "LOGIN";
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const FETCH_USER = "FETCH_USER";
-export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
+export const FETCH_POST = "FETCH_POST";
+export const FETCH_POST_SUCCESS = "FETCH_POST_SUCCESS";
+export const EDIT_POST = "EDIT_POST";
+export const EDIT_POST_SUCCESS = "EDIT_POST_SUCCESS";
+export const NEW_POST_SUCCESS = "NEW_POST_SUCCESS";
 
-export const fakeLogin = (payload) => {
+export const getPostList = () => {
 	return async (dispatch) => {
-		const { username, password } = payload;
-		if (username === "admin" && password === "123") {
-			dispatch({
-				type: LOGIN_SUCCESS,
-				payload,
-			});
-			dispatch(getUser());
-		} else {
-			alert("login failure!");
-		}
+		const res = await axios.get(" http://localhost:3001/posts");
+		dispatch({
+			type: FETCH_POST_SUCCESS,
+			payload: res.data,
+		});
+	};
+};
+export const editPostSubmit = (post) => {
+	return async (dispatch) => {
+		const res = await axios.put(
+			` http://localhost:3001/posts/${post.id}`,
+			post
+		);
+		dispatch({
+			type: EDIT_POST_SUCCESS,
+			payload: post,
+		});
 	};
 };
 
-export const getUser = () => {
+export const newPostSubmit = (post) => {
 	return async (dispatch) => {
-		const response = await axios.get(
-			"https://jsonplaceholder.typicode.com/users"
-		);
+		try {
+			const res = await axios.post(" http://localhost:3001/posts", post);
+			console.log(res);
+		} catch (e) {
+			e.response.data;
+		}
+
 		dispatch({
-			type: FETCH_USER_SUCCESS,
-			payload: response.data,
+			type: NEW_POST_SUCCESS,
+			payload: post,
 		});
 	};
 };

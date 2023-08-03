@@ -1,16 +1,34 @@
-import { FETCH_USER_SUCCESS, LOGIN_SUCCESS } from "./action";
+import {
+	EDIT_POST,
+	EDIT_POST_SUCCESS,
+	FETCH_POST_SUCCESS,
+	NEW_POST_SUCCESS,
+} from "./action";
 
 const initialState = {
-	users: [],
-	userlogined: {},
+	postList: [],
+	selectedPost: {},
 };
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case LOGIN_SUCCESS:
-			return { ...state, userlogined: action.payload };
-		case FETCH_USER_SUCCESS:
-			return { ...state, users: action.payload };
+		case FETCH_POST_SUCCESS:
+			return { ...state, postList: action.payload };
+
+		case EDIT_POST:
+			return { ...state, selectedPost: action.payload };
+		case EDIT_POST_SUCCESS:
+			const tmp = [...state.postList];
+			const postIndex = tmp.findIndex(
+				(item) => item.id === action.payload.id
+			);
+			tmp[postIndex] = action.payload;
+			return { postList: tmp, selectedPost: {} };
+		case NEW_POST_SUCCESS:
+			return {
+				postList: [...state.postList, action.payload],
+				selectedPost: {},
+			};
 	}
 
 	return state;
