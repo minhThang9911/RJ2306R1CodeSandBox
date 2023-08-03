@@ -1,25 +1,22 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import { Provider } from "react-redux";
-import store from "./redux/store";
-import PostList from "./components/PostList";
-import Post from "./components/Post";
+import NewTodo from "./components/NewTodo";
+import TodoList from "./components/TodoList";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
-const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <PostList />,
-	},
-	{
-		path: "/post",
-		element: <Post />,
-	},
-]);
-
-export default function App() {
+function App() {
 	return (
-		<Provider store={store}>
-			<RouterProvider router={router} />
-		</Provider>
+		<div className="container">
+			<div style={{ marginTop: 40 }}>
+				<h1>Todo list</h1>
+				<div>
+					<NewTodo />
+				</div>
+				<div>
+					<TodoList />
+				</div>
+			</div>
+		</div>
 	);
 }
+
+export default App;
