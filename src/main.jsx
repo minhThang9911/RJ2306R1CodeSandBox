@@ -1,10 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import store from "./redux/store";
+import thunk from "redux-thunk";
+import reducer from "./reducers";
+import { getAllProducts } from "./actions";
+import App from "./App";
+import ReactDOM from "react-dom/client";
+
+const middleware = [thunk];
+
+const store = createStore(reducer, applyMiddleware(...middleware));
+
+store.dispatch(getAllProducts());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
