@@ -1,20 +1,16 @@
-import { FETCH_USER_SUCCESS, LOGIN_SUCCESS } from "./action";
-
-// khởi tạo giá trị mặc định cho state gốc.
+import { DELETE_USER_SUCCESS, FETCH_USER_SUCCESS } from "./action";
 
 const initialState = {
 	users: [],
-	userlogined: {},
 };
 
-// Khởi tạo reducer
 const rootReducer = (state = initialState, action) => {
-	// Handle các actions gửi lên
 	switch (action.type) {
-		case LOGIN_SUCCESS:
-			return { ...state, userlogined: action.payload };
 		case FETCH_USER_SUCCESS:
-			return { ...state, users: action.payload };
+			return { users: action.payload };
+		case DELETE_USER_SUCCESS:
+			const newUsers = state.users.filter((item) => item.id !== action.payload);
+			return { users: newUsers };
 		default:
 			return state;
 	}
