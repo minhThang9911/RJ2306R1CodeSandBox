@@ -1,7 +1,8 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import StoryList from "./components/StoryList";
+import router from "./router/router";
 
 const App = () => {
 	return (
@@ -17,4 +18,6 @@ const App = () => {
 	);
 };
 
-export default App;
+export default function App (){
+	return <RouterProvider router={router}
+};
