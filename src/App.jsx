@@ -1,25 +1,20 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import "./App.css";
-import Login from "./components/Login";
-import User from "./components/User";
-import { Provider } from "react-redux";
-import store from "./redux/store";
+import React from "react";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import Header from "./components/Header";
+import StoryList from "./components/StoryList";
 
-const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <Login />,
-	},
-	{
-		path: "/users",
-		element: <User />,
-	},
-]);
-
-export default function App() {
+const App = () => {
 	return (
-		<Provider store={store}>
-			<RouterProvider router={router} />
-		</Provider>
+		<BrowserRouter>
+			<div className="container">
+				<Header />
+				<Routes>
+					<Route path="/:type" element={<StoryList />} />
+					<Route index element={<Navigate to="/top" />} />
+				</Routes>
+			</div>
+		</BrowserRouter>
 	);
-}
+};
+
+export default App;
