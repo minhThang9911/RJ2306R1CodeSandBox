@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editPost } from "../../redux/action";
 import { useNavigate } from "react-router-dom";
 import path from "../../router/path";
@@ -8,6 +8,7 @@ import { reactionEmoji } from "../../util";
 
 function ViewPost() {
 	const post = useSelector((state) => state.selectedPost);
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const handleReaction = (e) => {
 		const editedReaction = {
@@ -21,7 +22,6 @@ function ViewPost() {
 		dispatch(editPost(editedPost));
 	};
 	const handleEdit = () => {
-		console.log(path.postEdit);
 		navigate(`${path.postEdit}${post.id}`);
 	};
 	return (
