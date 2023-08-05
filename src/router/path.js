@@ -1,8 +1,12 @@
 const path = {
 	root: "/",
-	post: "post",
+	post: "posts",
+	postWithId: "posts/:id",
+	postEdit: "/posts/edit/",
+	postEditWithId: "posts/edit/:id",
 	api: {
-		post: "/api/posts",
+		post: "posts",
+		user: "users",
 	},
 };
 export default path;

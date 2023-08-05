@@ -1,18 +1,95 @@
-.App {
-  text-align: center;
+@keyframes bounce {
+	30% {
+		transform: scale(1.2);
+	}
+	40%,
+	60% {
+		transform: rotate(-20deg) scale(1.2);
+	}
+	50% {
+		transform: rotate(20deg) scale(1.2);
+	}
+	70% {
+		transform: rotate(0deg) scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container-fluid {
+	width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+	display: flex;
+	justify-content: space-between;
+	background-color: #74127a;
+	padding: 0.8em 1em;
+	color: #fff;
+}
+
+.header ul {
+	display: flex;
+	font-size: 1.2em;
+}
+.header ul li:first-child {
+	margin-right: 1em;
+}
+
+.post-item {
+	width: 50%;
+	border: 1px solid #ccc;
+	margin: 1em auto;
+	border-radius: 0.5em;
+	padding: 1em;
+}
+
+.post-item .body__text {
+	font-style: italic;
+	margin: 0.5em 0;
+}
+.post-item .body__link a {
+	text-decoration: underline;
+}
+.post-item .body_emoji {
+	height: 3.5em;
+	display: flex;
+	align-items: center;
+	font-size: 1.5em;
+	flex-wrap: wrap;
+}
+
+.post-item .body_emoji button {
+	border: none;
+	background: none;
+	transition: all 0.2s;
+}
+
+.post-item .body_emoji button:hover {
+	font-size: 2em;
+}
+.post-item .body_emoji button:active {
+	animation: bounce 0.3s ease;
+}
+
+.edit-post-wraper {
+	width: 50%;
+	margin: 2em auto;
+}
+.edit-post-wraper h1 {
+	margin-bottom: 1em;
+}
+.edit-post-wraper label p {
+	margin: 1em 0;
+}
+.edit-post-wraper button,
+.edit-post-wraper label select,
+.edit-post-wraper label textarea,
+.edit-post-wraper label input {
+	width: 100%;
+}
+
+.edit-post-wraper button {
+	margin-top: 1em;
 }

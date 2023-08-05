@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import path from "./path";
-import Post from "../modules/Post";
 import Main from "../views/layout/Main";
 import Home from "../modules/Home";
+import ViewPost from "../modules/Post/ViewPost";
+import EditPost from "../modules/Post/EditPost";
 
 const router = createBrowserRouter([
 	{
@@ -10,11 +11,16 @@ const router = createBrowserRouter([
 		element: <Main />,
 		children: [
 			{
+				path: "",
 				element: <Home />,
 			},
 			{
-				path: path.post,
-				element: <Post />,
+				path: path.postWithId,
+				element: <ViewPost />,
+			},
+			{
+				path: path.postEditWithId,
+				element: <EditPost />,
 			},
 		],
 	},

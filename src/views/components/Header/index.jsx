@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import path from "../../../router/path";
 
 function Header() {
 	return (
@@ -9,7 +10,7 @@ function Header() {
 					<Link to={"/"}>Home</Link>
 				</li>
 				<li>
-					<Link to={"/post"}>New Post</Link>
+					<Link to={`${path.postEdit}new`}>New Post</Link>
 				</li>
 			</ul>
 		</div>
