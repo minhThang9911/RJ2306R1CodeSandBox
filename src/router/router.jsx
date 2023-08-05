@@ -2,8 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import path from "./path";
 import Main from "../views/layout/Main";
 import Home from "../modules/Home";
-import ViewPost from "../modules/Post/ViewPost";
-import EditPost from "../modules/Post/EditPost";
+import Product from "../modules/Product";
 
 const router = createBrowserRouter([
 	{
@@ -15,12 +14,8 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path: path.postWithId,
-				element: <ViewPost />,
-			},
-			{
-				path: path.postEditWithId,
-				element: <EditPost />,
+				path: path.productWithId,
+				element: <Product />,
 			},
 		],
 	},

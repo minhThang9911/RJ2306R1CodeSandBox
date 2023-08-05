@@ -21,3 +21,9 @@ a {
 a:visited {
 	color: inherit;
 }
+
+img {
+	width: 100%;
+	object-fit: contain;
+	display: block;
+}
