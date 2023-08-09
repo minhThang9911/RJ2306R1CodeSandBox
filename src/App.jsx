@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import PostList from "./components/PostList";
 import Post from "./components/Post";
+import { Suspense } from "react";
 
 const router = createBrowserRouter([
 	{
