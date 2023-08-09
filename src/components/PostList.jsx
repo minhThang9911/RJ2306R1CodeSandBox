@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { Suspense, useEffect, lazy } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { EDIT_POST, getPostList } from "../redux/action";
 import { useNavigate } from "react-router";
+
+const LazyPostItem = lazy(() => import("./PostItem"));
 
 function PostList() {
 	const postList = useSelector((state) => state.postList);
@@ -30,17 +32,9 @@ function PostList() {
 
 			<ul className="body">
 				{postList.map((item, index) => (
-					<li key={index}>
-						<div className="post-content">
-							<h4>{item.title}</h4>
-							<p>{item.body}</p>
-						</div>
-						<div>
-							<button onClick={() => handleEdit(item)}>
-								Edit
-							</button>
-						</div>
-					</li>
+					<Suspense key={index} fallback={<p>LOADING</p>}>
+						<LazyPostItem item={item} handleEdit={handleEdit} />
+					</Suspense>
 				))}
 			</ul>
 		</div>
